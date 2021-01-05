@@ -57,7 +57,7 @@ export class RecordExistException extends HttpException {
       {
         error: {
           code: 'RECORD_EXIST',
-          message: msg || '记录已存在',
+          message: msg || 'Record already existed',
         },
       },
       200
@@ -71,7 +71,7 @@ export class RecordNotExistException extends HttpException {
       {
         error: {
           code: 'RECORD_EXIST',
-          message: msg || '记录不存在',
+          message: msg || "Record doesn't exist",
         },
       },
       200
@@ -86,7 +86,7 @@ export class UnauthorizedOperation extends HttpException {
       {
         error: {
           code: ErrorCode.UnauthorizedOperation,
-          message: msg || '未授权的操作',
+          message: msg || 'Unauthorized operation',
         },
       },
       403
@@ -100,7 +100,7 @@ export class UnsupportedOperation extends HttpException {
       {
         error: {
           code: ErrorCode.UnsupportedOperation,
-          message: msg || '不支持的操作',
+          message: msg || 'Unsupported operation',
         },
       },
       200

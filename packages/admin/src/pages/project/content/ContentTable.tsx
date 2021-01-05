@@ -110,7 +110,7 @@ export const ContentTable: React.FC<{
     return [
       ...columns,
       {
-        title: '操作',
+        title: 'Operations',
         width: 150,
         align: 'center',
         fixed: 'right',
@@ -128,7 +128,7 @@ export const ContentTable: React.FC<{
               history.push(`/${projectId}/content/${schemaId}/edit`)
             }}
           >
-            编辑
+            Edit
           </Button>,
           <Button
             danger
@@ -137,7 +137,7 @@ export const ContentTable: React.FC<{
             type="primary"
             onClick={() => {
               const modal = Modal.confirm({
-                title: '确认删除此内容？',
+                title: 'Delete this item?',
                 onCancel: () => {
                   modal.destroy()
                 },
@@ -153,7 +153,7 @@ export const ContentTable: React.FC<{
               })
             }}
           >
-            删除
+            Delete
           </Button>,
         ],
       },
@@ -170,7 +170,7 @@ export const ContentTable: React.FC<{
     () => [
       <Dropdown overlay={searchFieldMenu} key="search">
         <Button type="primary">
-          <FilterOutlined /> 增加检索
+          <FilterOutlined /> Search for articles
         </Button>
       </Dropdown>,
       <Button
@@ -192,7 +192,7 @@ export const ContentTable: React.FC<{
           history.push(`/${projectId}/content/${schemaId}/edit`)
         }}
       >
-        新建
+        New
       </Button>,
       <DataImport key="import" collectionName={currentSchema.collectionName} />,
       <DataExport
@@ -273,9 +273,9 @@ const getTableAlertRender = (projectId: string, currentSchema: Schema, tableRef:
     <Row>
       <Col flex="0 0 auto">
         <Space>
-          <span>已选中</span>
+          <span>Selected</span>
           <a style={{ fontWeight: 600 }}>{selectedRowKeys?.length}</a>
-          <span>项</span>
+          <span>item(s)</span>
         </Space>
       </Col>
       <Col flex="1 1 auto" style={{ textAlign: 'right' }}>
@@ -286,7 +286,7 @@ const getTableAlertRender = (projectId: string, currentSchema: Schema, tableRef:
             type="primary"
             onClick={() => {
               const modal = Modal.confirm({
-                title: '确认删除选中的内容？',
+                title: 'Remove selected items?',
                 onCancel: () => {
                   modal.destroy()
                 },
@@ -303,18 +303,18 @@ const getTableAlertRender = (projectId: string, currentSchema: Schema, tableRef:
               })
             }}
           >
-            <DeleteOutlined /> 删除文档
+            <DeleteOutlined /> Delete article(s)
           </Button>
           <Button
             size="small"
             type="primary"
             onClick={() => {
               const modal = Modal.confirm({
-                title: '确认导出选中的内容？',
+                title: 'Export selected items?',
                 content: (
                   <Select defaultValue="json" onChange={setExportFileType} className="mt-3">
-                    <Option value="csv">导出为 CSV 文件</Option>
-                    <Option value="json">导出为 JSON 文件</Option>
+                    <Option value="csv">Export as CSV</Option>
+                    <Option value="json">Export as JSON</Option>
                   </Select>
                 ),
                 onCancel: () => {
@@ -331,7 +331,7 @@ const getTableAlertRender = (projectId: string, currentSchema: Schema, tableRef:
               })
             }}
           >
-            <ExportOutlined /> 导出数据
+            <ExportOutlined /> Export
           </Button>
         </Space>
       </Col>

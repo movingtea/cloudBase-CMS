@@ -96,14 +96,14 @@ const ContentTableSearchForm: React.FC<{
                   onSearch({})
                 }}
               >
-                重置
+                Reset
               </Button>
               <Button type="primary" htmlType="submit">
-                搜索
+                Search
               </Button>
               <Tooltip title="保存检索条件，下次直接搜索">
                 <Button type="primary" loading={loading} onClick={saveSearchFields}>
-                  保存
+                  Save
                 </Button>
               </Tooltip>
             </Space>
