@@ -61,7 +61,7 @@ export const ISingleFileUploader: React.FC<{
   const [percent, setPercent] = useState(0)
   const [uploading, setUploading] = useState(false)
   const [fileList, setFileList] = useState<any[]>([])
-  const tipText = type === 'file' ? '文件' : '图片'
+  const tipText = type === 'file' ? 'File' : 'Image'
 
   // 加载图片预览
   useEffect(() => {
@@ -78,7 +78,7 @@ export const ISingleFileUploader: React.FC<{
         {
           url: fileUri,
           uid: fileUri,
-          name: fileName || `已上传${tipText}`,
+          name: fileName || `${tipText} has been uploaded`,
           status: 'done',
         },
       ])
@@ -91,7 +91,7 @@ export const ISingleFileUploader: React.FC<{
         {
           url: fileUri,
           uid: fileUri,
-          name: fileName || `已上传${tipText}`,
+          name: fileName || `${tipText} has been uploaded`,
           status: 'done',
         },
       ])
@@ -104,7 +104,7 @@ export const ISingleFileUploader: React.FC<{
           {
             url,
             uid: fileUri,
-            name: fileName || `已上传${tipText}`,
+            name: fileName || `${tipText} has been uploaded`,
             status: 'done',
           },
         ])
@@ -140,7 +140,7 @@ export const ISingleFileUploader: React.FC<{
                 status: 'done',
               },
             ])
-            message.success(`上传${tipText}成功`)
+            message.success(`${tipText} has been uploaded`)
           })
           return false
         }}
@@ -148,7 +148,7 @@ export const ISingleFileUploader: React.FC<{
         <p className="ant-upload-drag-icon">
           <InboxOutlined />
         </p>
-        <p className="ant-upload-text">点击或拖拽{tipText}上传</p>
+        <p className="ant-upload-text">Click or drag {tipText} to upload</p>
       </Dragger>
       {uploading && <Progress style={{ paddingTop: '10px' }} percent={percent} />}
     </>
@@ -168,7 +168,7 @@ const IMultipleEditor: React.FC<{
   const [percent, setPercent] = useState(0)
   const [fileList, setFileList] = useState<any[]>([])
   const [uploading, setUploading] = useState(false)
-  const tipText = type === 'file' ? '文件' : '图片'
+  const tipText = type === 'file' ? 'File' : 'Image'
 
   // 如果为 multiple 模式，但是 fileUris 为字符串，则转为数组
   if (!Array.isArray(fileUris) && typeof fileUris === 'string') {
@@ -229,7 +229,7 @@ const IMultipleEditor: React.FC<{
           return {
             url: fileUrl,
             uid: fileUri,
-            name: fileName || `已上传${tipText}`,
+            name: fileName || `${tipText} has been uploaded`,
             status: 'done',
           }
         })
@@ -271,7 +271,7 @@ const IMultipleEditor: React.FC<{
                 status: 'done',
               },
             ])
-            message.success(`上传${tipText}成功`)
+            message.success(`${tipText} has been uploaded`)
           })
           return false
         }}
@@ -279,7 +279,7 @@ const IMultipleEditor: React.FC<{
         <p className="ant-upload-drag-icon">
           <InboxOutlined />
         </p>
-        <p className="ant-upload-text">点击或拖拽{tipText}上传</p>
+        <p className="ant-upload-text">Click or drag {tipText} to upload</p>
       </Dragger>
       {uploading && <Progress style={{ paddingTop: '10px' }} percent={percent} />}
     </>

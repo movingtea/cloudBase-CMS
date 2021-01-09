@@ -50,7 +50,7 @@ const MigrateJobColumns: ProColumns<MigrateJobDto>[] = [
   },
   {
     width: '200px',
-    title: '创建时间',
+    title: 'Created at',
     dataIndex: 'createTime',
     valueType: 'dateTime',
   },

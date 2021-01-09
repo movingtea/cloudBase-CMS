@@ -22,7 +22,7 @@ export const getTableColumns = (fields: SchemaField[] = []): ProColumns[] => {
 
   // 插入序号列
   columns.unshift({
-    title: '序号',
+    title: 'No.',
     width: 72,
     align: 'center',
     valueType: 'indexBorder',

@@ -9,9 +9,9 @@ import { SYSTEM_FIELDS } from '@/common'
 const { TextArea } = Input
 
 const ActionTip = {
-  create: '创建',
-  edit: '更新',
-  copy: '复制',
+  create: 'Create',
+  edit: 'Update',
+  copy: 'Copy',
 }
 
 const DefaultKeys = ['_id', '_createTime', '_updateTime']

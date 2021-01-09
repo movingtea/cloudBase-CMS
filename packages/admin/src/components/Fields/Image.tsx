@@ -71,7 +71,7 @@ const ICloudImage: React.FC<{ fileUris: string[] }> = ({ fileUris }) => {
       })
       .catch((e) => {
         console.log(e)
-        message.error(`获取图片链接失败 ${e.message}`)
+        message.error(`Failed when getting image URL ${e.message}`)
       })
       .finally(() => {
         setLoading(false)
@@ -110,11 +110,11 @@ const MultipleImage: React.FC<{ urls: string[]; fileUris?: string[] }> = ({ urls
           style={ImageContainerStyle}
         />
         <Button size="small" type="link" onClick={() => setVisible(true)}>
-          查看更多
+          View more
         </Button>
       </Space>
       <Modal
-        title="图片"
+        title="Image"
         visible={visible}
         footer={null}
         width={700}

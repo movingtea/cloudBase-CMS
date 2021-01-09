@@ -13,7 +13,7 @@ export const FileAction: React.FC<{
   type: 'file' | 'image'
 }> = (props) => {
   const { index, fileUri, type } = props
-  const tipText = type === 'file' ? '文件' : '图片'
+  const tipText = type === 'file' ? 'File' : 'Image'
 
   let [copyLoading, setCopyLoading] = useState<number | boolean>(false)
   let [downloadLoading, setDownloadLoading] = useState<number | boolean>(false)
@@ -38,19 +38,19 @@ export const FileAction: React.FC<{
 
             downloadFile(fileUri)
               .then(() => {
-                message.success(`下载${tipText}成功`)
+                message.success(`Download ${tipText} successfully`)
               })
               .catch((e) => {
                 console.log(e)
                 console.log(e.message)
-                message.error(`下载${tipText}失败 ${e.message}`)
+                message.error(`Download ${tipText} failed ${e.message}`)
               })
               .finally(() => {
                 setDownloadLoading(false)
               })
           }}
         >
-          下载{tipText}
+          Download {tipText}
         </Button>
       )}
       <Button
@@ -77,14 +77,14 @@ export const FileAction: React.FC<{
             .catch((e) => {
               console.log(e)
               console.log(e.message)
-              message.error(`获取链接失败 ${e.message}`)
+              message.error(`Failed when getting URL ${e.message}`)
             })
             .finally(() => {
               setCopyLoading(false)
             })
         }}
       >
-        访问链接
+        Visit URL
         <CopyTwoTone />
       </Button>
     </div>

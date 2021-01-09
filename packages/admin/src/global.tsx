@@ -54,7 +54,7 @@ if (pwa) {
           reloadSW()
         }}
       >
-        刷新
+        Reload
       </Button>
     )
     notification.open({

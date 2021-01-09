@@ -113,7 +113,7 @@ export const FieldTypes = [
 
 export const SYSTEM_FIELDS: any[] = [
   {
-    displayName: '创建时间',
+    displayName: 'Created at',
     id: '_createTime',
     name: '_createTime',
     type: 'DateTime',
@@ -122,7 +122,7 @@ export const SYSTEM_FIELDS: any[] = [
     description: '系统字段，请勿随意修改',
   },
   {
-    displayName: '修改时间',
+    displayName: 'Edited at',
     id: '_updateTime',
     name: '_updateTime',
     type: 'DateTime',

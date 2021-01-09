@@ -6,9 +6,9 @@ import { createWebhook, updateWebhook } from '@/services/webhook'
 import { getSchemas } from '@/services/schema'
 
 const EventMap = {
-  create: '创建内容',
-  delete: '删除内容',
-  update: '更新内容',
+  create: 'Create',
+  delete: 'Delete',
+  update: 'Update',
 }
 
 interface Webhook {
@@ -29,7 +29,7 @@ export const WebhookModal: React.FC<{
   onSuccess: () => void
 }> = ({ visible, onClose, onSuccess, action, selectedWebhook }) => {
   const { projectId } = useParams<any>()
-  const actionText = action === 'create' ? '创建' : '更新'
+  const actionText = action === 'create' ? 'Create' : 'Update'
 
   // 创建、更新 webhook
   const { run, loading } = useRequest(
