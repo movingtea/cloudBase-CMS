@@ -22,7 +22,7 @@ const loginOut = async () => {
   // 退出登录
   await logout()
 
-  message.success('退出登录成功！')
+  message.success('Logged out!')
 
   const { redirect } = getPageQuery()
   // Note: There may be security issues, please note
@@ -79,7 +79,7 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = () => {
       {isAdmin && (
         <Menu.Item key="settings">
           <SettingOutlined />
-          系统设置
+          System settings
         </Menu.Item>
       )}
 
@@ -91,7 +91,7 @@ const AvatarDropdown: React.FC<GlobalHeaderRightProps> = () => {
       <Menu.Divider />
       <Menu.Item key="logout">
         <LogoutOutlined />
-        退出登录
+        Logout
       </Menu.Item>
     </Menu>
   )
