@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import {
   PlusSquareTwoTone,
   BellOutlined,
-  MessageOutlined,
+  /* MessageOutlined, */
   setTwoToneColor,
-  CodeSandboxOutlined,
+  /* CodeSandboxOutlined, */
 } from '@ant-design/icons'
 import {
   Card,
@@ -22,7 +22,7 @@ import {
   Drawer,
   Switch,
   Timeline,
-  Popover,
+  /* Popover, */
   Empty,
 } from 'antd'
 import { useConcent } from 'concent'
@@ -55,7 +55,7 @@ export default (): React.ReactNode => {
 
   return (
     <HomePage loading={loading}>
-      <Typography.Title level={3}>我的项目</Typography.Title>
+      <Typography.Title level={3}>My projects</Typography.Title>
       <div className="project-cards mt-10">
         {data?.length ? (
           <>
@@ -114,7 +114,7 @@ const HomePage: React.FC<{ loading: boolean }> = ({ children, loading }) => {
           <h1 className="title">{getCmsConfig('cmsTitle')}</h1>
         </div>
         <div className="right">
-          {SERVER_MODE && (
+          {/* SERVER_MODE && (
             <Tooltip title="当前 CMS 以容器服务模式运行">
               <CodeSandboxOutlined
                 style={{
@@ -125,7 +125,7 @@ const HomePage: React.FC<{ loading: boolean }> = ({ children, loading }) => {
               />
             </Tooltip>
           )}
-          {window.TcbCmsConfig.disableNotice ? null : <NoticeRender />}
+          {window.TcbCmsConfig.disableNotice ? null : <NoticeRender /> */}
           <AvatarDropdown />
         </div>
       </Header>
@@ -145,7 +145,7 @@ const HomePage: React.FC<{ loading: boolean }> = ({ children, loading }) => {
         {SERVER_MODE && ` - Stone`}
       </Footer>
 
-      {/* 悬浮按钮 */}
+      {/* 悬浮按钮 
       <div className="help-btn">
         {window.TcbCmsConfig.disableHelpButton ? null : (
           <Popover
@@ -170,7 +170,7 @@ const HomePage: React.FC<{ loading: boolean }> = ({ children, loading }) => {
             <Button size="large" type="primary" shape="circle" icon={<MessageOutlined />} />
           </Popover>
         )}
-      </div>
+      </div> */}
     </Layout>
   )
 }

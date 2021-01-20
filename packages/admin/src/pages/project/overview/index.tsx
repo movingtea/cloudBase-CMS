@@ -6,7 +6,7 @@ import { getCmsConfig } from '@/utils'
 export default (): React.ReactNode => {
   return (
     <PageContainer>
-      <Card>欢迎使用 {getCmsConfig('cmsTitle')}</Card>
+      <Card>Welcome to {getCmsConfig('cmsTitle')}</Card>
     </PageContainer>
   )
 }

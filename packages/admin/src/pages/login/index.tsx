@@ -2,8 +2,8 @@ import { useModel, history } from 'umi'
 import React, { useState, useEffect } from 'react'
 import { LockTwoTone, UserOutlined } from '@ant-design/icons'
 import { Alert, message, Button, Spin, Card, Typography, Form, Input } from 'antd'
-import { getCmsConfig, getPageQuery, loginWithPassword } from '@/utils'
-import Footer from '@/components/Footer'
+import { /* getCmsConfig, */ getPageQuery, loginWithPassword } from '@/utils'
+// import Footer from '@/components/Footer'
 import { LoginParamsType } from '@/services/login'
 import styles from './index.less'
 import FormItem from 'antd/lib/form/FormItem'
@@ -91,12 +91,12 @@ const Login: React.FC<{}> = () => {
             '环境未开启用户名密码登录，请到控制台 https://console.cloud.tencent.com/tcb/env/login 开启用户名密码登录'
           )
         } else if (e?.code === 'OPERATION_FAIL') {
-          setLoginErrorMessage('用户不存在或密码错误')
+          setLoginErrorMessage("User doesn't exit or password is not correct")
         } else {
-          setLoginErrorMessage(e.message || '登录失败，请重试！')
+          setLoginErrorMessage(e.message || 'Login failed, please try again')
         }
       } catch (_e) {
-        setLoginErrorMessage(error.message || '登录失败，请重试！')
+        setLoginErrorMessage(error.message || 'Login failed, please try again')
       }
     }
 
@@ -109,7 +109,7 @@ const Login: React.FC<{}> = () => {
     const messageListener = async (event: WindowEventMap['message']) => {
       if (event.data?.source === 'react-devtools-bridge') return
 
-      console.log('CMS 收到信息', event.data, event.origin)
+      // console.log('CMS 收到信息', event.data, event.origin)
 
       try {
         const data = event?.data ? JSON.parse(event.data) : {}
@@ -160,7 +160,7 @@ const Login: React.FC<{}> = () => {
       <div className={styles.content}>
         <Card className="rounded-lg">
           <div className="mt-10 mb-10">
-            <div className={styles.top}>
+            {/* <div className={styles.top}>
               <div className={styles.header}>
                 <a href="https://cloudbase.net" target="_blank">
                   <img alt="logo" className={styles.logo} src={getCmsConfig('cmsLogo')} />
@@ -168,7 +168,7 @@ const Login: React.FC<{}> = () => {
                 </a>
               </div>
               <div className={styles.desc}>打造云端一体化数据运营平台</div>
-            </div>
+            </div> */}
 
             <div className={styles.main}>
               <Form
@@ -177,7 +177,7 @@ const Login: React.FC<{}> = () => {
                 }}
               >
                 <Title level={4} className="text-center mt-10 mb-6 text-primary">
-                  账户密码登录
+                  Login
                 </Title>
                 {loginErrorMessage && !submitting && <LoginMessage content={loginErrorMessage} />}
                 <FormItem
@@ -185,13 +185,13 @@ const Login: React.FC<{}> = () => {
                   rules={[
                     {
                       required: true,
-                      message: '请输入用户名!',
+                      message: 'Please input your user name.',
                     },
                   ]}
                 >
                   <Input
                     size="large"
-                    placeholder="用户名"
+                    placeholder="User name"
                     prefix={<UserOutlined twoToneColor="#0052d9" className={styles.prefixIcon} />}
                   />
                 </FormItem>
@@ -200,13 +200,13 @@ const Login: React.FC<{}> = () => {
                   rules={[
                     {
                       required: true,
-                      message: '请输入密码！',
+                      message: 'Please input your password.',
                     },
                   ]}
                 >
                   <Input.Password
                     size="large"
-                    placeholder="密码"
+                    placeholder="Password"
                     prefix={<LockTwoTone twoToneColor="#0052d9" />}
                   />
                 </FormItem>
@@ -217,14 +217,14 @@ const Login: React.FC<{}> = () => {
                   htmlType="submit"
                   loading={submitting}
                 >
-                  登录
+                  login
                 </Button>
               </Form>
             </div>
           </div>
         </Card>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

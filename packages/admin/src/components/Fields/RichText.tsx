@@ -12,7 +12,7 @@ const { Dragger } = Upload
 const RichText: React.FC<{ value?: any; id: number; onChange?: (...args: any) => void }> = (
   props
 ) => {
-  const { id = 'default', value = '欢迎使用富文本编辑器', onChange = (...args: any) => {} } = props
+  const { id = 'default', value = '', onChange = (...args: any) => {} } = props
   const [editorState, setEditorState] = useState<any>()
 
   useEffect(() => {

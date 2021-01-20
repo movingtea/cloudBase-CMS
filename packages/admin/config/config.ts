@@ -29,7 +29,7 @@ const config: IConfig = {
     siderWidth: 208,
   },
   locale: {
-    default: 'zh-CN',
+    default: 'en-Us',
     antd: true,
     title: false,
     baseNavigator: true,

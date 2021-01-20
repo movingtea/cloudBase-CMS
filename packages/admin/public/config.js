@@ -22,7 +22,7 @@ window.TcbCmsConfig = {
   // 微信小程序 Id
   mpAppID: 'wx413df352b9aa117a',
   // CMS 文案配置
-  cmsTitle: 'CloudBase CMS',
+  cmsTitle: 'Galeries Lafayette Haussmann Mini Program Management Platform /',
   // Logo 图片
   cmsLogo: './icon.svg',
   // 文档链接
@@ -32,5 +32,5 @@ window.TcbCmsConfig = {
   // 产品官网链接
   officialSiteLink: '',
   // 产品名
-  appName: 'CMS管理后台',
+  appName: 'Mini Program Management Platform',
 }

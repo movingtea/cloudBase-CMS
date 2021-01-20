@@ -1,0 +1,164 @@
+TCBSAMFormatVersion: '2020-06-15'
+License: MIT
+Description: 基于 CloudBase Framework 构建
+Category: CloudApp
+Tags: []
+SourceUrl: 'https://github.com/Tencent/cloudbase-framework'
+ReleaseNotesUrl: 'https://github.com/Tencent/cloudbase-framework/releases'
+IconUrl: >-
+  https://main.qcloudimg.com/raw/f87b49914efe502722f9aa128f5d8865/hello_world.svg
+IntroUrl: 'https://cloud.tencent.com/document/product/876/44547'
+ChangeLog:
+  - Title: 1.0.0
+    Content:
+      - 初次发布
+Author:
+  AuthorName: Tencent CloudBase
+  Email: cloudbase@tencent.com
+  Url: 'https://github.com/Tencent/cloudbase-framework'
+Contributors:
+  - AuthorName: Tencent CloudBase
+    Email: cloudbase@tencent.com
+    Url: 'https://github.com/Tencent/cloudbase-framework'
+Name: cloudbase-extension-cms
+Version: 1.0.0
+DisplayName: cloudbase-extension-cms
+Globals:
+  Environment:
+    Variables: {}
+SourceDir: .
+EnvType: PostPay
+Resources:
+  Website:
+    Type: 'CloudBase::StaticStore'
+    Properties:
+      Description: 为开发者提供静态网页托管的能力，包括HTML、CSS、JavaScript、字体等常见资源。
+      CodeUri: 'extension://2a322399efc048a1afbf66c3d8cab530.zip'
+      DeployPath: /
+  ConfigEnv:
+    Type: 'CloudBase::StaticStore'
+    Properties:
+      Description: 配置文件
+      CodeUri: 'extension://aa6300a042f0439b8cd4b17c9e6bd435.zip'
+      DeployPath: /
+  TcbExtCmsInit:
+    Type: 'CloudBase::Function'
+    Properties:
+      Handler: index.main
+      Description: 无服务器执行环境，帮助您在无需购买和管理服务器的情况下运行代码
+      Runtime: Nodejs10.15
+      FunctionName: tcb-ext-cms-init
+      MemorySize: 128
+      Timeout: 60
+      Environment:
+        Variables:
+          CMS_ADMIN_USER_NAME: ineatadmin
+          CMS_ADMIN_PASS_WORD: Welcome1
+          CMS_DEPLOY_PATH: /
+      VpcConfig: {}
+      InstallDependency: true
+      CodeUri: 'extension://b37466be7b414b93a18dbe88b81c28bf.zip'
+      CodeSecret: false
+      Role: TCB_QcsRole
+  TcbExtCmsService:
+    Type: 'CloudBase::CloudBaseRun'
+    Properties:
+      ServerName: tcb-ext-cms-service
+      Description: 基于云开发 CloudBase Framework 部署的云托管
+      isPublic: true
+      UploadType: package
+      FlowRatio: 100
+      Cpu: 0.25
+      Mem: 0.5
+      MinNum: 0
+      MaxNum: 10
+      PolicyType: cpu
+      PolicyThreshold: 60
+      ContainerPort: 5000
+      DockerfilePath: ./Dockerfile
+      BuildDir: ./
+      HttpPath: /tcb-ext-cms-service-container
+      EnvParams: '{"TCB_ENVID":"ineat-test-4gq0dtl248b9418f","NODE_ENV":"production"}'
+      PackageName: tcb-ext-cms-service.zip
+      PackageVersion: '1611132363'
+  TcbExtCmsApi:
+    Type: 'CloudBase::Function'
+    Properties:
+      Handler: tcbindex.main
+      Description: 无服务器执行环境，帮助您在无需购买和管理服务器的情况下运行代码
+      Runtime: Nodejs10.15
+      FunctionName: tcb-ext-cms-api
+      MemorySize: 128
+      Timeout: 15
+      Environment:
+        Variables:
+          NODE_ENV: production
+      VpcConfig: {}
+      HttpPath: /nodeapp
+      InstallDependency: true
+      CodeUri: 'extension://2bb114c35e53465a92ddebe79b6e2bba.zip'
+      CodeSecret: false
+      Role: TCB_QcsRole
+  TCB_EXT_CMS_PROJECTS:
+    Type: 'CloudBase::FlexDB'
+    Properties:
+      Description: CMS 系统项目数据（请不要手动修改）
+      CollectionName: tcb-ext-cms-projects
+      AclTag: ADMINONLY
+  TCB_EXT_CMS_SCHEMAS:
+    Type: 'CloudBase::FlexDB'
+    Properties:
+      Description: CMS 系统内容模型数据（请不需要手动修改）
+      CollectionName: tcb-ext-cms-schemas
+      AclTag: ADMINONLY
+      CreateIndexes:
+        - Name: 查询索引
+          Unique: false
+          Keys:
+            - Name: collectionName
+              Direction: '1'
+            - Name: projectId
+              Direction: '1'
+  TCB_EXT_CMS_USERS:
+    Type: 'CloudBase::FlexDB'
+    Properties:
+      Description: CMS 系统系统用户数据，存储 CMS 的用户信息，包括管理员账号信息，角色信息等（请不要手动修改）
+      CollectionName: tcb-ext-cms-users
+      AclTag: ADMINONLY
+  TCB_EXT_CMS_WEBHOOKS:
+    Type: 'CloudBase::FlexDB'
+    Properties:
+      Description: CMS 系统系统 webhook 集合，存储 CMS 系统的回调接口配置，CMS 系统数据的变更可以通过回调来进行同步 （请不要手动修改）
+      CollectionName: tcb-ext-cms-webhooks
+      AclTag: ADMINONLY
+  TCB_EXT_CMS_SETTINGS:
+    Type: 'CloudBase::FlexDB'
+    Properties:
+      Description: CMS 系统系统配置集合，存储 CMS 系统的设置（请不要手动修改）
+      CollectionName: tcb-ext-cms-settings
+      AclTag: ADMINONLY
+  TCB_EXT_CMS_USER_ROLES:
+    Type: 'CloudBase::FlexDB'
+    Properties:
+      Description: CMS 系统系统用户角色配置集合，存储 CMS 系统的自定义用户角色信息（请不要手动修改）
+      CollectionName: tcb-ext-cms-user-roles
+      AclTag: ADMINONLY
+  TCB_EXT_CMS_DATA_MIGRATE:
+    Type: 'CloudBase::FlexDB'
+    Properties:
+      Description: CMS 系统数据导入导出的记录（请不要手动修改）
+      CollectionName: tcb-ext-cms-data-migrate
+      AclTag: ADMINONLY
+EntryPoint:
+  - Label: 网站入口
+    EntryType: StaticStore
+    HttpEntryPath: /
+  - Label: 服务入口
+    EntryType: HttpService
+    HttpEntryPath: /tcb-ext-cms-service-container
+  - Label: 服务地址
+    EntryType: HttpService
+    HttpEntryPath: /nodeapp
+Config:
+  InstalledHook:
+    - FunctionName: tcb-ext-cms-init
