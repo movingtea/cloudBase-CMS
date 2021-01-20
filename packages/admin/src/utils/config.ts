@@ -1,6 +1,6 @@
 const InnerDefaultValue: Partial<ITcbCmsConfing> = {
-  appName: 'CloudBase',
-  cmsTitle: 'CloudBase CMS',
+  appName: 'Galeries Lafayette Haussmann Mini Program Management Platform',
+  cmsTitle: 'Galeries Lafayette Haussmann Mini Program Management Platform',
   cmsLogo: './icon.svg',
   cmsDocLink: 'https://docs.cloudbase.net/cms/intro.html',
   cmsHelpLink: 'https://support.qq.com/products/148793',

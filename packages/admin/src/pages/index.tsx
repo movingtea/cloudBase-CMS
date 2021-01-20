@@ -32,12 +32,12 @@ import { getProjects, createProject } from '@/services/project'
 import { getCmsNotices } from '@/services/notice'
 import { getCmsConfig, getFullDate } from '@/utils'
 import './index.less'
-import pkg from '../../package.json'
+// import pkg from '../../package.json'
 
 // 设置图标颜色
 setTwoToneColor('#0052d9')
 
-const { Header, Content, Footer } = Layout
+const { Header, Content /* Footer */ } = Layout
 const IconStyle: React.CSSProperties = {
   fontSize: '1.8em',
   fontWeight: 'bold',
@@ -139,11 +139,11 @@ const HomePage: React.FC<{ loading: boolean }> = ({ children, loading }) => {
           children
         )}
       </Content>
-      <Footer className="text-center">
+      {/* <Footer className="text-center">
         {getCmsConfig('cmsTitle')}&nbsp;
         {pkg.version}
         {SERVER_MODE && ` - Stone`}
-      </Footer>
+      </Footer> */}
 
       {/* 悬浮按钮 
       <div className="help-btn">
