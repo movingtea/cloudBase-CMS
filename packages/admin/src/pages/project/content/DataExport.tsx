@@ -60,7 +60,7 @@ const DataExport: React.FC<{ schema: Schema; collectionName: string; searchParam
         }
         key="search"
       >
-        <Button type="primary">导出数据</Button>
+        <Button type="primary">Export</Button>
       </Dropdown>
       <Modal
         centered

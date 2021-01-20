@@ -64,7 +64,7 @@ export const SchemaExportModal: React.FC<{
     <Modal
       centered
       visible={visible}
-      title="选择导出需要导出的模型"
+      title="Please select model that you want to export"
       onOk={async () => {
         const exportSchemas = selectedSchemas.map((_: string) => {
           const schema = schemas.find((item) => item.collectionName === _) as Schema
@@ -186,7 +186,7 @@ export const SchemaImportModal: React.FC<{
   return (
     <Modal
       centered
-      title="导入模型"
+      title="Import model"
       closable={true}
       visible={visible}
       onOk={onImportData}
@@ -236,7 +236,7 @@ export const SchemaImportModal: React.FC<{
         <p className="ant-upload-drag-icon">
           <InboxOutlined />
         </p>
-        <p className="ant-upload-text">点击或拖拽上传文件，开始导入数据</p>
+        <p className="ant-upload-text">Click or drag file here to import data</p>
       </Dragger>
       <br />
       {importSchemas.length ? (

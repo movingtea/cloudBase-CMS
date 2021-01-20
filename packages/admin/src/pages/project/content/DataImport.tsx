@@ -58,13 +58,13 @@ const DataImport: React.FC<{ collectionName: string }> = ({ collectionName }) =>
         }
         key="search"
       >
-        <Button type="primary">导入数据</Button>
+        <Button type="primary">Import</Button>
       </Dropdown>
       <Modal
         centered
         destroyOnClose
         width={600}
-        title="导入数据"
+        title="Import"
         footer={null}
         closable={true}
         visible={visible}
