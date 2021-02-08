@@ -1,6 +1,6 @@
 {
-  "name": "CloudBase CMS",
-  "short_name": "CloudBase CMS",
+  "name": "GLHSM Mini Program Management Platform",
+  "short_name": "GLHSM MP Management",
   "display": "standalone",
   "start_url": "./?utm_source=homescreen",
   "theme_color": "#002140",

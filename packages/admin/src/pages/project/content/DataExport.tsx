@@ -38,9 +38,9 @@ const DataExport: React.FC<{ schema: Schema; collectionName: string; searchParam
       manual: true,
       onSuccess: () => {
         setVisible(false)
-        message.success('导出数据成功')
+        message.success('Data exported successfully')
       },
-      onError: (e) => message.error(`导出数据失败：${e.message}`),
+      onError: (e) => message.error(`Failed to export data：${e.message}`),
     }
   )
 
@@ -54,8 +54,8 @@ const DataExport: React.FC<{ schema: Schema; collectionName: string; searchParam
               setFileType(key as ExportFileType)
             }}
           >
-            <Menu.Item key="csv">导出为 CSV 文件</Menu.Item>
-            <Menu.Item key="json">导出为 JSON 文件</Menu.Item>
+            <Menu.Item key="csv">Export as CSV file</Menu.Item>
+            <Menu.Item key="json">Export as JSON file</Menu.Item>
           </Menu>
         }
         key="search"
@@ -66,16 +66,20 @@ const DataExport: React.FC<{ schema: Schema; collectionName: string; searchParam
         centered
         destroyOnClose
         width={600}
-        title="导出数据"
+        title="Export data"
         closable={true}
         visible={visible}
         okButtonProps={{ loading }}
         onOk={() => getExportData()}
-        okText={loading ? '导出数据中' : '确定'}
+        okText={loading ? 'Exporting' : 'Export'}
         onCancel={() => setVisible(false)}
       >
-        {searchKeys?.length ? <span>将导出满足搜索条件的数据</span> : <span>将导出全量数据</span>}
-        <Alert type="warning" message="最多支持导出 1000 条数据" className="mt-3" />
+        {searchKeys?.length ? (
+          <span>Export data in search result</span>
+        ) : (
+          <span>Export all data</span>
+        )}
+        <Alert type="warning" message="You can only export up to 1000 entries" className="mt-3" />
       </Modal>
     </>
   )

@@ -67,7 +67,7 @@ export const ContentTable: React.FC<{
           success: true,
         }
       } catch (error) {
-        console.log('内容请求错误', error)
+        console.log('Error when requesting content', error)
         return {
           data: [],
           total: 0,
@@ -86,7 +86,7 @@ export const ContentTable: React.FC<{
           const field = currentSchema.fields.find((_) => _.name === key)
           const fieldExist = searchFields?.find((_) => _.name === key)
           if (fieldExist) {
-            message.error('字段已添加，请勿重复添加')
+            message.error('Field already exists')
             return
           }
           // 添加字段
@@ -145,9 +145,9 @@ export const ContentTable: React.FC<{
                   try {
                     await deleteContent(projectId, currentSchema.collectionName, row._id)
                     tableRef?.current?.reload()
-                    message.success('删除内容成功')
+                    message.success('Content deleted')
                   } catch (error) {
-                    message.error('删除内容失败')
+                    message.error('Failed to delete content')
                   }
                 },
               })
@@ -180,7 +180,7 @@ export const ContentTable: React.FC<{
         disabled={!currentSchema.fields?.length}
         onClick={() => {
           if (!currentSchema?._id) {
-            message.error('请选择需要创建的内容类型！')
+            message.error('Please select content type that you want to create.')
             return
           }
 
@@ -295,9 +295,9 @@ const getTableAlertRender = (projectId: string, currentSchema: Schema, tableRef:
                     const ids = selectedRows.map((_: any) => _._id)
                     await batchDeleteContent(projectId, currentSchema.collectionName, ids)
                     tableRef?.current?.reload()
-                    message.success('删除内容成功')
+                    message.success('Content deleted')
                   } catch (error) {
-                    message.error('删除内容失败')
+                    message.error('Failed to delete content')
                   }
                 },
               })
@@ -323,9 +323,9 @@ const getTableAlertRender = (projectId: string, currentSchema: Schema, tableRef:
                 onOk: async () => {
                   try {
                     await exportData(selectedRows, fileType)
-                    message.success('导出数据成功')
+                    message.success('Data exported')
                   } catch (error) {
-                    message.error('导出数据失败')
+                    message.error('Failed to export data')
                   }
                 },
               })

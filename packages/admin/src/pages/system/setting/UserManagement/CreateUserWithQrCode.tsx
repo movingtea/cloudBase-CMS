@@ -2,7 +2,7 @@ import React from 'react'
 import { useRequest } from 'umi'
 import { useSetState } from 'react-use'
 import { getUserRoles } from '@/services/role'
-import { Button, Space, message, Modal, Form, Input, Select } from 'antd'
+import { Button, Space /* , message */, Modal, Form, Input, Select } from 'antd'
 
 /**
  * 微信，通过二位码添加用户
@@ -21,7 +21,7 @@ export default ({
   onSuccess: () => void
 }) => {
   const { visible, action, selectedUser } = state
-  const [{ qrCodeUrl, qrCodeVisible }, setState] = useSetState({
+  const [{ qrCodeUrl, qrCodeVisible } /* , setState */] = useSetState({
     qrCodeVisible: false,
     qrCodeUrl: '',
   })

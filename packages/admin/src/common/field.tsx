@@ -4,85 +4,85 @@ export const FieldTypes = [
   // 字符串：单行
   {
     type: 'String',
-    name: '单行字符串',
+    name: 'String',
     icon: <i className="gg-format-color" />,
   },
   // 字符串：多行
   {
     type: 'MultiLineString',
-    name: '多行字符串',
+    name: 'Multi line string',
     icon: <i className="gg-format-justify" />,
   },
   // 数字：整形、浮点型
   {
-    name: '数字',
     type: 'Number',
+    name: 'Number',
     icon: <i className="gg-math-percent" />,
   },
   // 布尔值
   {
     type: 'Boolean',
-    name: '布尔值',
+    name: 'Boolean',
     icon: <i className="gg-check" />,
   },
   {
     type: 'Enum',
-    name: '枚举',
+    name: 'Enum',
     icon: <i className="gg-template" />,
   },
   // 时间
   {
     type: 'Date',
-    name: '日期',
+    name: 'Date',
     icon: <i className="gg-calendar-dates" />,
-    description: '只包含日期，如 2020-09-01',
+    description: 'Date, such as 2020-09-01',
   },
   {
     type: 'DateTime',
-    name: '日期与时间',
+    name: 'Date and time',
     icon: <i className="gg-calendar-dates" />,
-    description: '包含日期和时间，如 2020-09-01 10:11:07',
+    description: 'Date and time, such as 2020-09-01 10:11:07',
   },
   // **颜色：Color**
   // 文件：File
   {
     type: 'File',
-    name: '文件',
+    name: 'File',
     icon: <i className="gg-file" />,
   },
   // 图片：Image
   {
     type: 'Image',
-    name: '图片',
+    name: 'Image',
     icon: <i className="gg-image" />,
   },
   {
     type: 'Media',
-    name: '多媒体',
+    name: 'Media',
     icon: <i className="gg-play-button-r" />,
   },
   // 邮箱地址
   {
     type: 'Email',
-    name: '邮箱地址',
+    name: 'Email',
     icon: <i className="gg-mail" />,
   },
   // 电话号码
   {
     type: 'Tel',
-    name: '电话号码',
+    name: 'Phone number',
     icon: <i className="gg-phone" />,
   },
   // 网址
   {
     type: 'Url',
-    name: '网址',
+    name: 'URL',
     icon: <i className="gg-link" />,
   },
   // 富文本
   {
     type: 'RichText',
-    name: '富文本',
+    name: 'Rich Text',
     icon: <i className="gg-file-document" />,
   },
   // Markdown
@@ -93,17 +93,17 @@ export const FieldTypes = [
   },
   {
     type: 'Connect',
-    name: '关联',
+    name: 'Connection',
     icon: <i className="gg-arrow-top-right-r" />,
   },
   {
     type: 'Array',
-    name: '数组',
+    name: 'Array',
     icon: <i className="gg-list" />,
   },
   {
     type: 'Object',
-    name: 'JSON 对象',
+    name: 'JSON object',
     icon: <i className="gg-list-tree" />,
     description: '可以自由存储类 JSON 对象和数组（非 JSON 字符串）',
   },

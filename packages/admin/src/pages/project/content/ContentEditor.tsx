@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams, useRequest, history } from 'umi'
 import { useConcent } from 'concent'
-import { Form, message, Space, Button, Row, Col, Input } from 'antd'
+import { Form, message, Space, Button, Row, Col /* Input */ } from 'antd'
 import { createContent, setContent } from '@/services/content'
 import { getFieldFormItem } from '@/components/Fields'
 import ProCard from '@ant-design/pro-card'
@@ -35,10 +35,12 @@ const ContentEditor: React.FC = () => {
     {
       manual: true,
       onError: () => {
-        message.error(`${contentAction === 'create' ? '新建' : '更新'}内容失败`)
+        message.error(`Failed to ${contentAction === 'create' ? 'Create' : 'Update'} content`)
       },
       onSuccess: () => {
-        message.success(`${contentAction === 'create' ? '新建' : '更新'}内容成功`)
+        message.success(
+          `Content ${contentAction === 'create' ? 'created' : 'updated'} successfully`
+        )
         // 返回
         history.goBack()
       },
@@ -47,7 +49,7 @@ const ContentEditor: React.FC = () => {
 
   return (
     <PageContainer
-      title={`${contentAction === 'create' ? '创建' : '更新'}【${schema?.displayName}】内容`}
+      title={`${contentAction === 'create' ? 'Create' : 'Update'}【${schema?.displayName}】`}
     >
       <Row>
         <Col
@@ -59,7 +61,7 @@ const ContentEditor: React.FC = () => {
           <div style={{ cursor: 'pointer' }} onClick={() => history.goBack()}>
             <Space align="center" style={{ marginBottom: '10px' }}>
               <LeftCircleTwoTone style={{ fontSize: '20px' }} />
-              <h3 style={{ marginBottom: '0.25rem' }}>返回</h3>
+              <h3 style={{ marginBottom: '0.25rem' }}>Back</h3>
             </Space>
           </div>
           <ProCard>
@@ -69,11 +71,11 @@ const ContentEditor: React.FC = () => {
               initialValues={initialValues}
               onFinish={(v = {}) => run(v)}
             >
-              {contentAction === 'edit' && (
-                <Form.Item label="文档 Id" name="_id">
+              {/* {contentAction === 'edit' && (
+                <Form.Item label="Document Id" name="_id">
                   <Input type="text" disabled />
                 </Form.Item>
-              )}
+              )} */}
 
               {schema?.fields
                 ?.filter((_) => !_.isSystem)
@@ -88,10 +90,10 @@ const ContentEditor: React.FC = () => {
                           history.goBack()
                         }}
                       >
-                        取消
+                        Cancel
                       </Button>
                       <Button type="primary" htmlType="submit" loading={loading}>
-                        {contentAction === 'create' ? '创建' : '更新'}
+                        {contentAction === 'create' ? 'Create' : 'Update'}
                       </Button>
                     </Space>
                   </Col>

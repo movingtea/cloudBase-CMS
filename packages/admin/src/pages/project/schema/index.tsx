@@ -48,15 +48,15 @@ export default (): React.ReactNode => {
             }}
           >
             <PlusOutlined />
-            新建模型
+            New Schema
           </Button>
           <Button type="primary" onClick={() => setExportVisible(true)}>
             <ExportOutlined />
-            导出模型
+            Import schema
           </Button>
           <Button type="primary" onClick={() => setImportVisible(true)}>
             <ImportOutlined />
-            导入模型
+            Export schema
           </Button>
         </Space>
       }

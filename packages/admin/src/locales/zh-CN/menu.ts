@@ -1,7 +1,7 @@
 export default {
-  'menu.overview': '概览',
+  'menu.overview': 'Overview2',
   'menu.schema': '内容模型',
-  'menu.content': '内容集合',
+  'menu.content': 'Contents',
   'menu.system-settings': '系统设置',
   'menu.webhook': 'Webhook',
 

@@ -51,9 +51,9 @@ const DataImport: React.FC<{ collectionName: string }> = ({ collectionName }) =>
               setDataType(key as string)
             }}
           >
-            <Menu.Item key="csv">通过 CSV 导入</Menu.Item>
-            <Menu.Item key="json">通过 JSON 导入</Menu.Item>
-            <Menu.Item key="record">查看导入记录</Menu.Item>
+            <Menu.Item key="csv">Import from CSV</Menu.Item>
+            <Menu.Item key="json">Import from JSON</Menu.Item>
+            <Menu.Item key="record">View import records</Menu.Item>
           </Menu>
         }
         key="search"

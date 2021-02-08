@@ -45,7 +45,7 @@ const routesConfig: IConfig = {
         {
           exact: true,
           path: '/:projectId/home',
-          name: '概览',
+          name: 'Overview1',
           icon: 'eye',
           access: 'isLogin',
           wrappers: ['../components/SecurityWrapper/index'],

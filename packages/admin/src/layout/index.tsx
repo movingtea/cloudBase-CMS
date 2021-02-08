@@ -2,7 +2,7 @@ import { Spin } from 'antd'
 import React, { useEffect, useMemo } from 'react'
 import { history, Link, matchPath, useAccess } from 'umi'
 import HeaderTitle from '@/components/HeaderTitle'
-import RightContent from '@/components/RightContent'
+// import RightContent from '@/components/RightContent'
 import ProLayout, { MenuDataItem, BasicLayoutProps } from '@ant-design/pro-layout'
 import {
   EyeTwoTone,
@@ -24,19 +24,19 @@ const customMenuDate: MenuDataItem[] = [
   {
     authority: 'isLogin',
     path: '/:projectId/home',
-    name: '概览',
+    name: 'Overview',
     icon: <EyeTwoTone />,
   },
   {
     authority: 'canSchema',
     path: '/:projectId/schema',
-    name: '内容模型',
+    name: 'Shema',
     icon: <GoldTwoTone />,
   },
   {
     authority: 'canContent',
     path: '/:projectId/content',
-    name: '内容集合',
+    name: 'Content',
     icon: <DatabaseTwoTone />,
     children: [],
   },
@@ -49,7 +49,7 @@ const customMenuDate: MenuDataItem[] = [
   {
     authority: 'isAdmin',
     path: '/:projectId/setting',
-    name: '项目设置',
+    name: 'Setting',
     icon: <SettingTwoTone />,
   },
 ]
@@ -60,7 +60,7 @@ const layoutProps: BasicLayoutProps = {
   headerHeight: 64,
   disableContentMargin: true,
   logo: getCmsConfig('cmsLogo'),
-  rightContentRender: () => <RightContent />,
+  // rightContentRender: () => <RightContent />,
   headerTitleRender: ({ collapsed }) => <HeaderTitle collapsed={Boolean(collapsed)} />,
   // 面包屑渲染
   itemRender: () => null,
@@ -114,7 +114,7 @@ const Layout: React.FC<any> = (props) => {
               textAlign: 'center',
             }}
           >
-            <Spin tip="数据加载中" />
+            <Spin tip="Loading" />
           </div>
         ) : (
           dom

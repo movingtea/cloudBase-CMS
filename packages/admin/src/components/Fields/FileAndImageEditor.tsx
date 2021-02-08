@@ -110,7 +110,7 @@ export const ISingleFileUploader: React.FC<{
         ])
       })
       .catch((e) => {
-        message.error(`加载图片失败 ${e.message}`)
+        message.error(`Failed when getting URL of image ${e.message}`)
       })
   }, [])
 
@@ -237,7 +237,7 @@ const IMultipleEditor: React.FC<{
         setFileList(fileList)
       })
       .catch((e) => {
-        message.error(`获取图片链接失败 ${e.message}`)
+        message.error(`Failed when getting URL of image ${e.message}`)
       })
   }, [fileUris])
 
