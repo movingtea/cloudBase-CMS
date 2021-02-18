@@ -51,6 +51,7 @@ const RichText: React.FC<{ value?: any; id: number; onChange?: (...args: any) =>
         }}
         excludeControls={['media']}
         extendControls={extendControls}
+        language="en"
       />
     </div>
   )
